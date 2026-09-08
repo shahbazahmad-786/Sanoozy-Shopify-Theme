@@ -1,0 +1,446 @@
+<!doctype html>
+<html
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
+
+    {% # theme-check-disable RemoteAsset %}
+    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
+      <link
+        rel="expect"
+        href="#MainContent"
+        blocking="render"
+        id="view-transition-render-blocker"
+      >
+    {% endif %}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
+    {% endif %}
+
+    {{ content_for_header }}
+    {% # theme-check-enable RemoteAsset %}
+  </head>
+
+{% comment %} 
+  Start - Dev Shahbaz
+  But Now Button
+{% endcomment %}
+ {% if template.name == 'index' %}
+  <a href="/products/6-pack-barley-drink-in-3-different-flavors" class="floating-product-bar">
+
+    <div class="fp-left">
+        <div class="fp-icon">🥤</div>
+        <div class="fp-text">
+            <div class="fp-title">Barley Drink In 3 Different Flavors</div>
+            <div class="fp-sub">Try it now and enjoy refreshing taste</div>
+        </div>
+    </div>
+
+    <div class="fp-right">
+        Buy Now
+    </div>
+
+</a>
+
+<style>
+
+/* =========================
+   BASE DESIGN (DESKTOP)
+========================= */
+
+.floating-product-bar{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 360px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 14px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+
+    border: 2px solid #fcb83f;
+    border-radius: 14px;
+
+    text-decoration: none;
+    z-index: 9999;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+    transition: 0.3s ease;
+}
+
+.floating-product-bar:hover{
+    transform: translateY(-2px);
+}
+
+/* LEFT SIDE */
+.fp-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fp-icon{
+    font-size: 26px;
+}
+
+.fp-title{
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.2;
+}
+
+.fp-sub{
+    font-size: 11px;
+    color: #333;
+    margin-top: 2px;
+}
+
+/* RIGHT BUTTON */
+.fp-right{
+    background: #fcb83f;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* =========================
+   MOBILE FIX (CENTER + SAFE)
+========================= */
+
+@media (max-width: 768px){
+
+    .floating-product-bar{
+        width: 92%;
+
+        left: 50%;
+        right: auto;
+
+        transform: translateX(-50%);
+
+        bottom: 15px;
+
+        box-sizing: border-box;
+    }
+
+    /* prevent mobile tap shift */
+    .floating-product-bar:hover{
+        transform: translateX(-50%);
+    }
+
+    .floating-product-bar:active{
+        transform: translateX(-50%);
+    }
+
+    .fp-icon{
+        font-size: 22px;
+    }
+
+    .fp-title{
+        font-size: 12px;
+    }
+
+    .fp-sub{
+        font-size: 10px;
+    }
+
+    .fp-right{
+        padding: 7px 10px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+}
+
+</style>
+{% endif %}
+{% comment %} 
+  End - Dev Shahbaz
+{% endcomment %}
+
+{% comment %} 
+ Start - Dev Shahbaz
+ Firt time show discunt modal
+{% endcomment %}
+<div id="discountPopup" class="popup-overlay">
+    <div class="popup-box">
+
+        <div class="popup-close" onclick="closePopup()">×</div>
+
+        <div class="popup-content">
+
+            <h2 class="popup-title">🎉 Limited Time Discount</h2>
+
+            <p class="discount-text">Get</p>
+            <div class="discount-text-off"><span>15% OFF</span></div>
+            <p class="discount-text">On 2 Boxes!</p>
+
+            <a href="https://sanoozy.com/products/6-pack-barley-drink-in-3-different-flavors" class="popup-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+
+/* OVERLAY */
+.popup-overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background: rgba(0,0,0,0.5);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+/* POPUP BOX (GLASS EFFECT) */
+.popup-box{
+    width: 320px;
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 2px solid #fcb83f;
+
+    text-align: center;
+    position: relative;
+
+    animation: pop 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes pop{
+    from{transform: scale(0.8); opacity:0;}
+    to{transform: scale(1); opacity:1;}
+}
+
+/* CLOSE BUTTON */
+.popup-close{
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* TITLE FIX (ONE LINE) */
+.popup-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* BUTTON */
+.popup-btn{
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+
+    background: #fcb83f;
+    color: #fff;
+
+    text-decoration: none;
+    border-radius: 10px;
+
+    font-weight: 600;
+}
+
+/* TEXT */
+.popup-content p{
+    color: white;
+    {% comment %} margin-top: 8px; {% endcomment %}
+}
+/* TEXT STYLE */
+.discount-text{
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    {% comment %} margin-top: 8px; {% endcomment %}
+}
+
+.discount-text-off span{
+    font-weight: 900;
+    color: #fcb83f;
+    font-size: 18px;
+
+    display: inline-block;
+
+    animation: zoomPulse 1.2s infinite ease-in-out;
+}
+
+/* ZOOM ANIMATION */
+@keyframes zoomPulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.25);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+</style>
+
+<script>
+function showPopup(){
+    document.getElementById("discountPopup").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("discountPopup").style.display = "none";
+    localStorage.setItem("popupShown", "yes");
+}
+
+window.onload = function(){
+    if(!localStorage.getItem("popupShown")){
+        setTimeout(showPopup, 2000);
+    }
+}
+</script>
+{% comment %} 
+ End - Dev Shahbaz
+{% endcomment %}
+
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    <div id="header-group">
+      {% sections 'header-group' %}
+    </div>
+
+    <script>
+      // Inline header height and menu style calculations to prevent layout shift
+      // Note: Updates in calculateHeaderGroupHeight(), updateTransparentHeaderOffset() and setHeaderMenuStyle() utilities.js should be kept in sync with this function
+      (function setHeaderHeighCustomProperties() {
+        /*
+         * Header calculation functions for maintaining CSS variables
+         * Mimic calculateHeaderGroupHeight() in utilities.js
+         */
+        const header = document.querySelector('header-component');
+        const headerGroup = document.querySelector('#header-group');
+        const hasHeaderSection = headerGroup?.querySelector('.header-section');
+
+        if (!header || !headerGroup) return;
+
+        const headerTopRow = header.querySelector('.header__row--top');
+        const headerHeight = header.offsetHeight;
+
+        // Calculate the total height of the header group
+        let headerGroupHeight = 0;
+        const children = headerGroup.children;
+        for (let i = 0; i < children.length; i++) {
+          const element = children[i];
+          if (element === header || !(element instanceof HTMLElement)) continue;
+          headerGroupHeight += element.offsetHeight;
+        }
+
+        // Check for transparent header special case
+        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+          headerGroupHeight += headerHeight;
+        }
+
+        // Set CSS variables
+        document.body.style.setProperty('--header-height', `${headerHeight}px`);
+        document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+
+        if (headerTopRow) {
+          window.requestAnimationFrame(function () {
+            document.body.style.setProperty('--top-row-height', `${headerTopRow.offsetHeight}px`);
+          });
+        }
+
+        /**
+         * Updates CSS custom properties for transparent header offset calculation
+         * Mimic updateTransparentHeaderOffset() in utilities.js
+         */
+
+        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+          document.body.style.setProperty('--transparent-header-offset-boolean', '0');
+          return;
+        }
+
+        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+
+        const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
+        document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
+      })();
+
+      (function setHeaderMenuStyle() {
+        const headerComponent = document.querySelector('#header-component');
+        if (headerComponent) {
+          const isTouchDevice = 'ontouchstart' in window && navigator.maxTouchPoints > 0;
+          const overflowList = headerComponent?.querySelector('overflow-list');
+          const hasReachedMinimum = overflowList && overflowList.hasAttribute('minimum-reached');
+          headerComponent.dataset.menuStyle = isTouchDevice || hasReachedMinimum ? 'drawer' : 'menu';
+        }
+      })();
+    </script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    <footer>
+      {% sections 'footer-group' %}
+    </footer>
+
+    {% render 'search-modal' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+  </body>
+</html>

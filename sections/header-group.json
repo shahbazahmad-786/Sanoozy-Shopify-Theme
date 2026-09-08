@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header_announcements_xbFHcj": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_7G4Tnh": {
+          "type": "_announcement",
+          "settings": {
+            "text": "🎉 Get <strong>20% OFF</strong> on 3 boxes - Family Pack Special",
+            "link": "shopify://products/6-pack-barley-drink-in-3-different-flavors",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "announcement_anpFH8": {
+          "type": "_announcement",
+          "settings": {
+            "text": "🔥 Limited Time Offer! Get <strong>15% OFF</strong> on 2 Boxes",
+            "link": "shopify://products/6-pack-barley-drink-in-3-different-flavors",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_7G4Tnh",
+        "announcement_anpFH8"
+      ],
+      "custom_css": [],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 5,
+        "section_width": "page-width",
+        "color_scheme": "scheme-c338f947-df35-437d-ad8a-48ff36e4c9cd",
+        "divider_width": 0,
+        "padding-block-start": 9,
+        "padding-block-end": 9
+      }
+    },
+    "header_section": {
+      "type": "header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "header-menu": {
+          "type": "_header-menu",
+          "static": true,
+          "settings": {
+            "menu": "main-menu",
+            "color_scheme": "scheme-6",
+            "type_font_primary_size": "0.875rem",
+            "menu_font_style": "inverse_large",
+            "type_font_primary_link": "primary",
+            "type_case_primary_link": "none",
+            "menu_style": "featured_collections",
+            "featured_products_aspect_ratio": "4 / 5",
+            "featured_collections_aspect_ratio": "1 / 1",
+            "image_border_radius": 2,
+            "navigation_bar": false,
+            "color_scheme_navigation_bar": "",
+            "drawer_accordion": false,
+            "drawer_accordion_expand_first": false,
+            "drawer_dividers": false
+          },
+          "blocks": {}
+        }
+      },
+      "custom_css": [
+        ".header {background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); box-shadow: -1px -1px 0 -0.5px rgba(255, 255, 255, 0.4), /* top-left corner */ 1px 1px 0 -0.5px rgba(255, 255, 255, 0.4); /* bottom-right corner */}"
+      ],
+      "settings": {
+        "logo_position": "center",
+        "menu_position": "left",
+        "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
+        "show_search": true,
+        "search_position": "right",
+        "search_row": "top",
+        "show_country": true,
+        "country_selector_style": true,
+        "show_language": true,
+        "localization_font": "heading",
+        "localization_font_size": "0.875rem",
+        "localization_position": "right",
+        "localization_row": "top",
+        "section_width": "page-width",
+        "section_height": "standard",
+        "enable_sticky_header": "never",
+        "divider_width": 0,
+        "divider_size": "page-width",
+        "border_width": 0,
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
+        "color_scheme_top": "scheme-c338f947-df35-437d-ad8a-48ff36e4c9cd",
+        "color_scheme_bottom": "",
+        "color_scheme_transparent": "scheme-c338f947-df35-437d-ad8a-48ff36e4c9cd",
+        "enable_transparent_header_home": true,
+        "home_color_scheme": "inverse",
+        "enable_transparent_header_product": false,
+        "product_color_scheme": "default",
+        "enable_transparent_header_collection": false,
+        "collection_color_scheme": "default"
+      }
+    }
+  },
+  "order": [
+    "header_announcements_xbFHcj",
+    "header_section"
+  ]
+}
