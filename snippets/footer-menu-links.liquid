@@ -1,0 +1,80 @@
+{%- doc -%}
+  Hardcoded footer navigation links for Useful Links and Our Policies.
+  @param {string} menu_type - "useful" or "policies"
+  @param {string} [link_preset] - Typography preset class for menu items
+{%- enddoc -%}
+
+{%- liquid
+  assign cancel_order_url = pages['cancel-order'].url
+  if cancel_order_url == blank
+    assign cancel_order_url = '/pages/cancel-order'
+  endif
+
+  assign contact_info_url = pages['contact-information'].url
+  if contact_info_url == blank
+    assign contact_info_url = '/pages/contact-information'
+  endif
+
+  if shop.privacy_policy != blank
+    assign privacy_url = shop.privacy_policy.url
+  else
+    assign privacy_url = '/policies/privacy-policy'
+  endif
+
+  if shop.shipping_policy != blank
+    assign shipping_url = shop.shipping_policy.url
+  else
+    assign shipping_url = '/policies/shipping-policy'
+  endif
+
+  if shop.refund_policy != blank
+    assign refund_url = shop.refund_policy.url
+  else
+    assign refund_url = '/policies/refund-policy'
+  endif
+
+  if shop.terms_of_service != blank
+    assign terms_url = shop.terms_of_service.url
+  else
+    assign terms_url = '/policies/terms-of-service'
+  endif
+-%}
+
+<ul class="list-unstyled">
+  {%- if menu_type == 'useful' -%}
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ routes.root_url }}">Homepage</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ routes.all_products_collection_url }}">Buy Now</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ routes.account_url }}">My Profile</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ routes.account_url }}">My Orders</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ routes.account_url }}">Track Order</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ cancel_order_url }}">Cancel Order</a>
+    </li>
+  {%- elsif menu_type == 'policies' -%}
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ privacy_url }}">Privacy Policy</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ shipping_url }}">Shipping Policy</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ refund_url }}">Refund Policy</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ terms_url }}">Terms of Service</a>
+    </li>
+    <li class="menu__item {{ link_preset }}">
+      <a href="{{ contact_info_url }}">Contact Information</a>
+    </li>
+  {%- endif -%}
+</ul>

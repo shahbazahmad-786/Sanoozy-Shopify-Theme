@@ -4,6 +4,7 @@
   assign block_settings = block.settings
   assign menu = block_settings.menu
   assign heading = block_settings.heading
+  assign menu_handle = menu.handle | default: ''
   assign color_scheme = block_settings.color_scheme
   assign show_as_accordion = block_settings.show_as_accordion
   if show_as_accordion == true and block_settings.accordion_dividers == true
@@ -66,7 +67,11 @@
           aria-label="{{ menu.title | escape }}"
         {% endif %}
       >
-        {% if menu %}
+        {% if menu_handle == 'useful-links' or heading == 'Useful Links' %}
+          {% render 'footer-menu-links', menu_type: 'useful', link_preset: block_settings.link_preset %}
+        {% elsif menu_handle == 'policies' or heading == 'Our Policies' %}
+          {% render 'footer-menu-links', menu_type: 'policies', link_preset: block_settings.link_preset %}
+        {% elsif menu %}
           <ul class="list-unstyled">
             {% for link in menu.links %}
               <li class="menu__item {{ block_settings.link_preset }}">
@@ -101,6 +106,21 @@
 
   .menu__item + .menu__item {
     margin-block-start: var(--spacing--size);
+  }
+
+  .menu__heading,
+  .menu__item a {
+    white-space: normal;
+    word-spacing: normal;
+  }
+
+  .menu__item a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .menu__item a:hover {
+    text-decoration: underline;
   }
 
   .menu .menu__heading--empty {
