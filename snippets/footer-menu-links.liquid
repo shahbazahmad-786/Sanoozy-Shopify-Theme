@@ -15,28 +15,24 @@
     assign contact_info_url = '/pages/contact-information'
   endif
 
-  if shop.privacy_policy != blank
-    assign privacy_url = shop.privacy_policy.url
-  else
-    assign privacy_url = '/policies/privacy-policy'
+  assign privacy_url = pages['privacy-policy'].url
+  if privacy_url == blank
+    assign privacy_url = '/pages/privacy-policy'
   endif
 
-  if shop.shipping_policy != blank
-    assign shipping_url = shop.shipping_policy.url
-  else
-    assign shipping_url = '/policies/shipping-policy'
+  assign shipping_url = pages['shipping-policy'].url
+  if shipping_url == blank
+    assign shipping_url = '/pages/shipping-policy'
   endif
 
-  if shop.refund_policy != blank
-    assign refund_url = shop.refund_policy.url
-  else
-    assign refund_url = '/policies/refund-policy'
+  assign refund_url = pages['refund-policy'].url
+  if refund_url == blank
+    assign refund_url = '/pages/refund-policy'
   endif
 
-  if shop.terms_of_service != blank
-    assign terms_url = shop.terms_of_service.url
-  else
-    assign terms_url = '/policies/terms-of-service'
+  assign terms_url = pages['terms-of-service'].url
+  if terms_url == blank
+    assign terms_url = '/pages/terms-of-service'
   endif
 -%}
 

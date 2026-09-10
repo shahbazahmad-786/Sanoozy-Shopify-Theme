@@ -2,10 +2,9 @@
   assign whatsapp_url = 'https://wa.me/923148232224?text=Hi%20Sanoozy%2C%20I%20would%20like%20to%20cancel%20my%20order.%20Order%20number%3A%20'
   assign email_address = 'contact.sanoozy@gmail.com'
 
-  if shop.refund_policy != blank
-    assign refund_url = shop.refund_policy.url
-  else
-    assign refund_url = '/policies/refund-policy'
+  assign refund_url = pages['refund-policy'].url
+  if refund_url == blank
+    assign refund_url = '/pages/refund-policy'
   endif
 
   assign form_id = 'CancelOrderForm'

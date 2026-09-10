@@ -1,0 +1,266 @@
+{%- liquid
+  assign policy = section.settings.policy
+  assign whatsapp_url = 'https://wa.me/923148232224?text=Hey%20Sanoozy%21%20I%20have%20a%20question%20about%20your%20policies.'
+  assign contact_url = pages['contact-information'].url
+  if contact_url == blank
+    assign contact_url = '/pages/contact-information'
+  endif
+
+  case policy
+    when 'privacy'
+      assign eyebrow = 'Our policies'
+      assign title = 'Privacy Policy'
+      assign lead = 'Your privacy matters to us.'
+      assign intro = 'This page explains what information Sanoozy collects, how we use it, and the choices you have when you shop with us.'
+    when 'shipping'
+      assign eyebrow = 'Our policies'
+      assign title = 'Shipping Policy'
+      assign lead = 'Clear delivery information before you order.'
+      assign intro = 'Here is how Sanoozy processes, ships, and delivers your order across Pakistan.'
+    when 'refund'
+      assign eyebrow = 'Our policies'
+      assign title = 'Refund Policy'
+      assign lead = 'Fair returns when something is not right.'
+      assign intro = 'If your order arrives damaged, incorrect, or incomplete, this policy explains how we can help.'
+    else
+      assign eyebrow = 'Our policies'
+      assign title = 'Terms of Service'
+      assign lead = 'The rules for using the Sanoozy store.'
+      assign intro = 'Please read these terms before placing an order or creating an account with Sanoozy.'
+  endcase
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section section--page-width color-{{ section.settings.color_scheme }}">
+  <div
+    class="sanoozy-info-page sanoozy-legal-page spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    <header class="sanoozy-info-hero">
+      <p class="sanoozy-info-eyebrow">{{ eyebrow }}</p>
+      <h1 class="sanoozy-info-title">{{ title }}</h1>
+      <p class="sanoozy-info-lead">{{ lead }}</p>
+      <p class="sanoozy-info-intro">{{ intro }}</p>
+      <p class="sanoozy-legal-updated">Last updated: 10 September 2026</p>
+    </header>
+
+    <div class="sanoozy-legal-content">
+      {%- case policy -%}
+        {%- when 'privacy' -%}
+          {% render 'policy-privacy-content' %}
+        {%- when 'shipping' -%}
+          {% render 'policy-shipping-content' %}
+        {%- when 'refund' -%}
+          {% render 'policy-refund-content' %}
+        {%- else -%}
+          {% render 'policy-terms-content' %}
+      {%- endcase -%}
+    </div>
+
+    <aside class="sanoozy-info-assist">
+      <h2>Questions about this policy?</h2>
+      <p>
+        Our team is happy to help. Reach us on WhatsApp, email, or the contact page — we’re here to make your Sanoozy
+        experience clear and hassle-free.
+      </p>
+      <div class="sanoozy-legal-actions">
+        <a class="button" href="{{ whatsapp_url }}" target="_blank" rel="noopener">Chat with us</a>
+        <a class="button-secondary" href="{{ contact_url }}">Contact information</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{% stylesheet %}
+  .sanoozy-info-page {
+    width: 100%;
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  .sanoozy-legal-page {
+    max-width: 860px;
+  }
+
+  .sanoozy-info-hero {
+    text-align: center;
+    max-width: 720px;
+    margin-inline: auto;
+    margin-block-end: 40px;
+  }
+
+  .sanoozy-info-eyebrow {
+    margin: 0 0 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .sanoozy-info-title {
+    margin: 0 0 12px;
+  }
+
+  .sanoozy-info-lead {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .sanoozy-info-intro {
+    margin: 0;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  .sanoozy-legal-updated {
+    margin: 16px 0 0;
+    font-size: 0.85rem;
+    opacity: 0.65;
+  }
+
+  .sanoozy-legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-block-end: 36px;
+  }
+
+  .sanoozy-legal-block {
+    padding: 28px 32px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    border-radius: 18px;
+    background: rgb(var(--color-foreground-rgb) / 0.03);
+  }
+
+  .sanoozy-legal-block h2 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+  }
+
+  .sanoozy-legal-block p,
+  .sanoozy-legal-block li {
+    margin: 0;
+    line-height: 1.65;
+    opacity: 0.9;
+  }
+
+  .sanoozy-legal-block p + p,
+  .sanoozy-legal-block p + ul,
+  .sanoozy-legal-block ul + p {
+    margin-block-start: 12px;
+  }
+
+  .sanoozy-legal-block ul {
+    margin: 0;
+    padding-inline-start: 20px;
+  }
+
+  .sanoozy-legal-block li + li {
+    margin-block-start: 8px;
+  }
+
+  .sanoozy-legal-block a {
+    color: inherit;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .sanoozy-info-assist {
+    text-align: center;
+    padding: 36px 28px;
+    border-radius: 18px;
+    background: rgb(var(--color-foreground-rgb) / 0.07);
+  }
+
+  .sanoozy-info-assist h2 {
+    margin: 0 0 10px;
+    font-size: 1.4rem;
+  }
+
+  .sanoozy-info-assist p {
+    margin: 0 auto 20px;
+    max-width: 640px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .sanoozy-legal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .sanoozy-legal-actions .button,
+  .sanoozy-legal-actions .button-secondary {
+    padding-block: 12px;
+    padding-inline: 22px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sanoozy-info-hero {
+      margin-block-end: 48px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .sanoozy-legal-block {
+      padding: 22px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Legal policy page",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "policy",
+      "label": "Policy",
+      "options": [
+        { "value": "privacy", "label": "Privacy Policy" },
+        { "value": "shipping", "label": "Shipping Policy" },
+        { "value": "refund", "label": "Refund Policy" },
+        { "value": "terms", "label": "Terms of Service" }
+      ],
+      "default": "privacy"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}
