@@ -1,0 +1,66 @@
+<div class="sanoozy-account-header">
+  <div>
+    <h1>My account</h1>
+    <p>
+      {%- if customer.first_name != blank -%}
+        Hi {{ customer.first_name }}, welcome back to Sanoozy.
+      {%- else -%}
+        Welcome back to Sanoozy.
+      {%- endif -%}
+    </p>
+  </div>
+  <div class="sanoozy-account-actions">
+    <a class="button-secondary" href="{{ routes.account_addresses_url }}">Addresses</a>
+    <a class="button-secondary" href="{{ routes.account_logout_url }}">Log out</a>
+  </div>
+</div>
+
+<div class="sanoozy-account-grid">
+  <div class="sanoozy-account-card">
+    <h2 style="margin: 0 0 16px; font-size: 1.2rem;">Order history</h2>
+    {%- if customer.orders.size > 0 -%}
+      <table class="sanoozy-account-table">
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for order in customer.orders -%}
+            <tr>
+              <td>
+                <a href="{{ order.customer_url }}">{{ order.name }}</a>
+              </td>
+              <td>{{ order.created_at | time_tag: format: 'date' }}</td>
+              <td>{{ order.fulfillment_status_label }}</td>
+              <td>{{ order.total_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    {%- else -%}
+      <p class="sanoozy-account-empty">You haven’t placed any orders yet.</p>
+      <a class="button" href="{{ routes.all_products_collection_url }}" style="margin-block-start: 16px;">Shop now</a>
+    {%- endif -%}
+  </div>
+
+  <div class="sanoozy-account-card">
+    <h2 style="margin: 0 0 16px; font-size: 1.2rem;">Account details</h2>
+    <p style="margin: 0 0 8px;"><strong>{{ customer.name }}</strong></p>
+    <p style="margin: 0 0 8px;">{{ customer.email }}</p>
+    {%- if customer.phone != blank -%}
+      <p style="margin: 0 0 16px;">{{ customer.phone }}</p>
+    {%- endif -%}
+    {%- if customer.default_address -%}
+      <p style="margin: 0; line-height: 1.55; opacity: 0.85;">
+        {{ customer.default_address | format_address }}
+      </p>
+    {%- else -%}
+      <p class="sanoozy-account-empty">No default address saved yet.</p>
+    {%- endif -%}
+    <a class="button-secondary" href="{{ routes.account_addresses_url }}" style="margin-block-start: 18px;">Manage addresses</a>
+  </div>
+</div>

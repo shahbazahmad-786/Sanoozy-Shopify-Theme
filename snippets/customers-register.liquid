@@ -1,0 +1,68 @@
+<div class="sanoozy-account--narrow">
+  {% render 'account-logo' %}
+
+  <div class="sanoozy-account-card">
+    <h1>Create account</h1>
+    <p>Join Sanoozy to track orders and checkout faster next time.</p>
+
+    {%- form 'create_customer', novalidate: 'novalidate', class: 'sanoozy-account-form' -%}
+      {%- if form.errors -%}
+        <div class="sanoozy-account-alert sanoozy-account-alert--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <label class="sanoozy-account-field">
+        <span>First name</span>
+        <input
+          type="text"
+          name="customer[first_name]"
+          autocomplete="given-name"
+          value="{{ form.first_name }}"
+          placeholder="First name"
+        >
+      </label>
+
+      <label class="sanoozy-account-field">
+        <span>Last name</span>
+        <input
+          type="text"
+          name="customer[last_name]"
+          autocomplete="family-name"
+          value="{{ form.last_name }}"
+          placeholder="Last name"
+        >
+      </label>
+
+      <label class="sanoozy-account-field">
+        <span>Email</span>
+        <input
+          type="email"
+          name="customer[email]"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          required
+          value="{{ form.email }}"
+          placeholder="you@email.com"
+        >
+      </label>
+
+      <label class="sanoozy-account-field">
+        <span>Password</span>
+        <input
+          type="password"
+          name="customer[password]"
+          autocomplete="new-password"
+          required
+          placeholder="Create a password"
+        >
+      </label>
+
+      <button type="submit" class="button">Create account</button>
+      <div class="sanoozy-account-links">
+        <a href="{{ routes.account_login_url }}">Already have an account? Sign in</a>
+      </div>
+    {%- endform -%}
+  </div>
+</div>

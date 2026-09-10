@@ -1,0 +1,18 @@
+{%- liquid
+  assign logo_image = settings.logo_inverse | default: settings.logo
+-%}
+<a href="{{ routes.root_url }}" class="sanoozy-account-logo">
+  {%- if logo_image != blank -%}
+    {{
+      logo_image
+      | image_url: width: 360
+      | image_tag:
+        class: 'sanoozy-account-logo__image',
+        alt: shop.name,
+        widths: '180, 240, 360',
+        sizes: '180px'
+    }}
+  {%- else -%}
+    <span class="sanoozy-account-logo__name">{{ shop.name }}</span>
+  {%- endif -%}
+</a>

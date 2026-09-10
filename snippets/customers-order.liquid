@@ -1,0 +1,78 @@
+<div class="sanoozy-account-header">
+  <div>
+    <h1>Order {{ order.name }}</h1>
+    <p>Placed on {{ order.created_at | date: '%B %d, %Y' }}</p>
+  </div>
+  <div class="sanoozy-account-actions">
+    <a class="button-secondary" href="{{ routes.account_url }}">Back to account</a>
+  </div>
+</div>
+
+<div class="sanoozy-account-card" style="margin-block-end: 18px;">
+  <table class="sanoozy-account-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for line_item in order.line_items -%}
+        <tr>
+          <td>
+            {{ line_item.title }}
+            {%- if line_item.sku != blank -%}
+              <div style="opacity: 0.7; font-size: 0.85rem;">SKU: {{ line_item.sku }}</div>
+            {%- endif -%}
+          </td>
+          <td>{{ line_item.quantity }}</td>
+          <td>{{ line_item.final_line_price | money }}</td>
+        </tr>
+      {%- endfor -%}
+    </tbody>
+  </table>
+
+  <div style="margin-block-start: 18px; display: grid; gap: 8px; max-width: 280px; margin-inline-start: auto;">
+    <div style="display: flex; justify-content: space-between; gap: 24px;">
+      <span>Subtotal</span>
+      <strong>{{ order.line_items_subtotal_price | money }}</strong>
+    </div>
+    {%- for discount_application in order.discount_applications -%}
+      <div style="display: flex; justify-content: space-between; gap: 24px;">
+        <span>{{ discount_application.title }}</span>
+        <strong>-{{ discount_application.total_allocated_amount | money }}</strong>
+      </div>
+    {%- endfor -%}
+    <div style="display: flex; justify-content: space-between; gap: 24px;">
+      <span>Shipping</span>
+      <strong>{{ order.shipping_price | money }}</strong>
+    </div>
+    <div style="display: flex; justify-content: space-between; gap: 24px;">
+      <span>Total</span>
+      <strong>{{ order.total_price | money }}</strong>
+    </div>
+    <p style="margin: 8px 0 0; opacity: 0.75; font-size: 0.9rem;">
+      Payment: {{ order.financial_status_label }} · Fulfillment: {{ order.fulfillment_status_label }}
+    </p>
+  </div>
+</div>
+
+<div class="sanoozy-account-grid">
+  <div class="sanoozy-account-card">
+    <h2 style="margin: 0 0 12px; font-size: 1.2rem;">Shipping address</h2>
+    {%- if order.shipping_address -%}
+      {{ order.shipping_address | format_address }}
+    {%- else -%}
+      <p class="sanoozy-account-empty">No shipping address on this order.</p>
+    {%- endif -%}
+  </div>
+  <div class="sanoozy-account-card">
+    <h2 style="margin: 0 0 12px; font-size: 1.2rem;">Billing address</h2>
+    {%- if order.billing_address -%}
+      {{ order.billing_address | format_address }}
+    {%- else -%}
+      <p class="sanoozy-account-empty">No billing address on this order.</p>
+    {%- endif -%}
+  </div>
+</div>

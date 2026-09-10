@@ -1,0 +1,132 @@
+<div class="sanoozy-account-header">
+  <div>
+    <h1>Addresses</h1>
+    <p>Manage the addresses used for your Sanoozy orders.</p>
+  </div>
+  <div class="sanoozy-account-actions">
+    <a class="button-secondary" href="{{ routes.account_url }}">Back to account</a>
+  </div>
+</div>
+
+<div class="sanoozy-account-grid">
+  {%- for address in customer.addresses -%}
+    <div class="sanoozy-account-card">
+      {%- if address == customer.default_address -%}
+        <p style="margin: 0 0 10px; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; opacity: 0.7;">Default</p>
+      {%- endif -%}
+      {{ address | format_address }}
+
+      {%- form 'customer_address', address, class: 'sanoozy-account-form', style: 'margin-block-start: 18px;' -%}
+        <div class="sanoozy-account-form--2col">
+          <label class="sanoozy-account-field">
+            <span>First name</span>
+            <input type="text" name="address[first_name]" value="{{ address.first_name }}" autocomplete="given-name">
+          </label>
+          <label class="sanoozy-account-field">
+            <span>Last name</span>
+            <input type="text" name="address[last_name]" value="{{ address.last_name }}" autocomplete="family-name">
+          </label>
+          <label class="sanoozy-account-field sanoozy-account-field--full">
+            <span>Company</span>
+            <input type="text" name="address[company]" value="{{ address.company }}" autocomplete="organization">
+          </label>
+          <label class="sanoozy-account-field sanoozy-account-field--full">
+            <span>Address</span>
+            <input type="text" name="address[address1]" value="{{ address.address1 }}" autocomplete="address-line1">
+          </label>
+          <label class="sanoozy-account-field sanoozy-account-field--full">
+            <span>Apartment, suite, etc.</span>
+            <input type="text" name="address[address2]" value="{{ address.address2 }}" autocomplete="address-line2">
+          </label>
+          <label class="sanoozy-account-field">
+            <span>City</span>
+            <input type="text" name="address[city]" value="{{ address.city }}" autocomplete="address-level2">
+          </label>
+          <label class="sanoozy-account-field">
+            <span>Country</span>
+            <select name="address[country]" autocomplete="country">
+              {{ all_country_option_tags }}
+            </select>
+          </label>
+          <label class="sanoozy-account-field">
+            <span>Province / State</span>
+            <input type="text" name="address[province]" value="{{ address.province }}" autocomplete="address-level1">
+          </label>
+          <label class="sanoozy-account-field">
+            <span>Postal code</span>
+            <input type="text" name="address[zip]" value="{{ address.zip }}" autocomplete="postal-code">
+          </label>
+          <label class="sanoozy-account-field sanoozy-account-field--full">
+            <span>Phone</span>
+            <input type="tel" name="address[phone]" value="{{ address.phone }}" autocomplete="tel">
+          </label>
+          <label class="sanoozy-account-field sanoozy-account-field--full" style="flex-direction: row; align-items: center; gap: 10px;">
+            <input type="checkbox" name="address[default]" value="1" {% if address == customer.default_address %}checked{% endif %}>
+            <span>Set as default address</span>
+          </label>
+          <button type="submit" class="button">Update address</button>
+        </div>
+      {%- endform -%}
+
+      {%- form 'customer_address', address, style: 'margin-block-start: 10px;' -%}
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="button-secondary" style="width: 100%;">Delete address</button>
+      {%- endform -%}
+    </div>
+  {%- endfor -%}
+
+  <div class="sanoozy-account-card">
+    <h2 style="margin: 0 0 16px; font-size: 1.2rem;">Add a new address</h2>
+    {%- form 'customer_address', customer.new_address, class: 'sanoozy-account-form' -%}
+      <div class="sanoozy-account-form--2col">
+        <label class="sanoozy-account-field">
+          <span>First name</span>
+          <input type="text" name="address[first_name]" autocomplete="given-name">
+        </label>
+        <label class="sanoozy-account-field">
+          <span>Last name</span>
+          <input type="text" name="address[last_name]" autocomplete="family-name">
+        </label>
+        <label class="sanoozy-account-field sanoozy-account-field--full">
+          <span>Company</span>
+          <input type="text" name="address[company]" autocomplete="organization">
+        </label>
+        <label class="sanoozy-account-field sanoozy-account-field--full">
+          <span>Address</span>
+          <input type="text" name="address[address1]" autocomplete="address-line1">
+        </label>
+        <label class="sanoozy-account-field sanoozy-account-field--full">
+          <span>Apartment, suite, etc.</span>
+          <input type="text" name="address[address2]" autocomplete="address-line2">
+        </label>
+        <label class="sanoozy-account-field">
+          <span>City</span>
+          <input type="text" name="address[city]" autocomplete="address-level2">
+        </label>
+        <label class="sanoozy-account-field">
+          <span>Country</span>
+          <select name="address[country]" autocomplete="country">
+            {{ all_country_option_tags }}
+          </select>
+        </label>
+        <label class="sanoozy-account-field">
+          <span>Province / State</span>
+          <input type="text" name="address[province]" autocomplete="address-level1">
+        </label>
+        <label class="sanoozy-account-field">
+          <span>Postal code</span>
+          <input type="text" name="address[zip]" autocomplete="postal-code">
+        </label>
+        <label class="sanoozy-account-field sanoozy-account-field--full">
+          <span>Phone</span>
+          <input type="tel" name="address[phone]" autocomplete="tel">
+        </label>
+        <label class="sanoozy-account-field sanoozy-account-field--full" style="flex-direction: row; align-items: center; gap: 10px;">
+          <input type="checkbox" name="address[default]" value="1">
+          <span>Set as default address</span>
+        </label>
+        <button type="submit" class="button">Add address</button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="sanoozy-account--narrow">
+  {% render 'account-logo' %}
+
+  <div class="sanoozy-account-card">
+    <h1>Activate account</h1>
+    <p>Create a password to activate your Sanoozy account.</p>
+
+    {%- form 'activate_customer_password', class: 'sanoozy-account-form' -%}
+      {%- if form.errors -%}
+        <div class="sanoozy-account-alert sanoozy-account-alert--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <label class="sanoozy-account-field">
+        <span>Password</span>
+        <input
+          type="password"
+          name="customer[password]"
+          autocomplete="new-password"
+          required
+          placeholder="Create a password"
+        >
+      </label>
+
+      <label class="sanoozy-account-field">
+        <span>Confirm password</span>
+        <input
+          type="password"
+          name="customer[password_confirmation]"
+          autocomplete="new-password"
+          required
+          placeholder="Confirm password"
+        >
+      </label>
+
+      <button type="submit" class="button">Activate account</button>
+    {%- endform -%}
+  </div>
+</div>

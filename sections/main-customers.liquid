@@ -1,0 +1,294 @@
+{%- liquid
+  assign page_type = template.name
+-%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section section--page-width color-{{ section.settings.color_scheme }}">
+  <div
+    class="sanoozy-account spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    {%- case page_type -%}
+      {%- when 'login' -%}
+        {% render 'customers-login' %}
+      {%- when 'register' -%}
+        {% render 'customers-register' %}
+      {%- when 'reset_password' -%}
+        {% render 'customers-reset-password' %}
+      {%- when 'activate_account' -%}
+        {% render 'customers-activate-account' %}
+      {%- when 'account' -%}
+        {% render 'customers-account' %}
+      {%- when 'order' -%}
+        {% render 'customers-order' %}
+      {%- when 'addresses' -%}
+        {% render 'customers-addresses' %}
+    {%- endcase -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .sanoozy-account {
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
+  }
+
+  .sanoozy-account--narrow {
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .sanoozy-account-logo {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 28px;
+  }
+
+  .sanoozy-account-logo__image {
+    display: block;
+    width: auto;
+    height: 48px;
+  }
+
+  .sanoozy-account-logo__name {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .sanoozy-account-card {
+    padding: 32px 28px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    border-radius: 18px;
+    background: rgb(var(--color-foreground-rgb) / 0.03);
+  }
+
+  .sanoozy-account-card h1,
+  .sanoozy-account-header h1 {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .sanoozy-account-card > p,
+  .sanoozy-account-lead {
+    margin: 0 0 24px;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 1.55;
+  }
+
+  .sanoozy-account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sanoozy-account-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .sanoozy-account-field input,
+  .sanoozy-account-field select,
+  .sanoozy-account-field textarea {
+    width: 100%;
+    font-weight: 400;
+    color: var(--color-input-text);
+    background-color: var(--color-input-background);
+    border: var(--style-border-width-inputs) solid var(--color-input-border);
+    border-radius: var(--style-border-radius-inputs);
+    padding: 14px 16px;
+  }
+
+  .sanoozy-account-form .button,
+  .sanoozy-account-form .button-secondary {
+    width: 100%;
+    justify-content: center;
+    padding-block: 13px;
+  }
+
+  .sanoozy-account-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-block-start: 8px;
+    text-align: center;
+  }
+
+  .sanoozy-account-links a {
+    color: inherit;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .sanoozy-account-alert {
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .sanoozy-account-alert--error {
+    background: rgb(180 50 50 / 0.12);
+  }
+
+  .sanoozy-account-alert--success {
+    background: rgb(47 122 62 / 0.12);
+  }
+
+  .sanoozy-account-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-block-end: 28px;
+  }
+
+  .sanoozy-account-header h1,
+  .sanoozy-account-header p {
+    text-align: left;
+    margin: 0;
+  }
+
+  .sanoozy-account-header p {
+    opacity: 0.8;
+    margin-block-start: 6px;
+  }
+
+  .sanoozy-account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sanoozy-account-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sanoozy-account-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .sanoozy-account-table th,
+  .sanoozy-account-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / 0.1);
+    font-size: 0.95rem;
+  }
+
+  .sanoozy-account-table th {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .sanoozy-account-table a {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  .sanoozy-account-empty {
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  #recover:target ~ .sanoozy-account-login,
+  .sanoozy-account-recover {
+    display: none;
+  }
+
+  #recover:target ~ .sanoozy-account-recover {
+    display: block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sanoozy-account-card {
+      padding: 40px 36px;
+    }
+
+    .sanoozy-account-grid {
+      grid-template-columns: 1.4fr 0.8fr;
+    }
+
+    .sanoozy-account-form--2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .sanoozy-account-form--2col .sanoozy-account-field--full,
+    .sanoozy-account-form--2col .button {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .sanoozy-account-header,
+    .sanoozy-account-header h1,
+    .sanoozy-account-header p {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .sanoozy-account-actions {
+      justify-content: center;
+    }
+
+    .sanoozy-account-table th:nth-child(n + 3),
+    .sanoozy-account-table td:nth-child(n + 3) {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Customer account",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}
