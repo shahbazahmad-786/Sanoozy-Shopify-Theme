@@ -928,10 +928,10 @@
         "padding-block-end": 0
       }
     },
-    "section_iLxGjY": {
+    "section_rYpwDr": {
       "type": "section",
       "blocks": {
-        "group_eYgeNG": {
+        "group_QFJC6y": {
           "type": "group",
           "settings": {
             "content_direction": "column",
@@ -970,17 +970,17 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_XtM3gV": {
+            "icon_VEQtyp": {
               "type": "icon",
               "settings": {
-                "icon": "leaf",
+                "icon": "serving_dish",
                 "width": 40,
                 "link": "",
                 "open_in_new_tab": false
               },
               "blocks": {}
             },
-            "group_fiYqJF": {
+            "group_ENFGkw": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -1019,10 +1019,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_CTeFxz": {
+                "text_DCUEra": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2><strong>Pure Barley Goodness</strong></h2>",
+                    "text": "<h2><strong>Something for Everyone</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1044,10 +1044,10 @@
                   },
                   "blocks": {}
                 },
-                "text_CWWm3b": {
+                "text_TF7WDK": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Made from premium barley (Sattu) for a naturally nutritious and refreshing drink</p>",
+                    "text": "<p>Discover a variety of tasty treats and refreshing choices for every occasion</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1071,17 +1071,17 @@
                 }
               },
               "block_order": [
-                "text_CTeFxz",
-                "text_CWWm3b"
+                "text_DCUEra",
+                "text_TF7WDK"
               ]
             }
           },
           "block_order": [
-            "icon_XtM3gV",
-            "group_fiYqJF"
+            "icon_VEQtyp",
+            "group_ENFGkw"
           ]
         },
-        "group_PAf7LF": {
+        "group_DVhQJH": {
           "type": "group",
           "settings": {
             "content_direction": "column",
@@ -1120,7 +1120,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_brUjYR": {
+            "icon_3xMhKt": {
               "type": "icon",
               "settings": {
                 "icon": "plant",
@@ -1130,7 +1130,7 @@
               },
               "blocks": {}
             },
-            "group_iirHay": {
+            "group_GcTLKc": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -1169,10 +1169,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_X4ApbJ": {
+                "text_nMzGcB": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2><strong>Delicious 3 Flavors</strong></h2>",
+                    "text": "<h2><strong>Taste That Brings Joy</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1194,10 +1194,10 @@
                   },
                   "blocks": {}
                 },
-                "text_Dw7gc8": {
+                "text_7FR6Yd": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Enjoy three amazing flavors, Almond, Pistachio, and Cashew, crafted for a rich and satisfying taste.</p>",
+                    "text": "<p>Enjoy delicious flavors that make every bite and sip more enjoyable</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1221,17 +1221,17 @@
                 }
               },
               "block_order": [
-                "text_X4ApbJ",
-                "text_Dw7gc8"
+                "text_nMzGcB",
+                "text_7FR6Yd"
               ]
             }
           },
           "block_order": [
-            "icon_brUjYR",
-            "group_iirHay"
+            "icon_3xMhKt",
+            "group_GcTLKc"
           ]
         },
-        "group_ajRDL9": {
+        "group_JFDpak": {
           "type": "group",
           "settings": {
             "content_direction": "column",
@@ -1270,7 +1270,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_AUBGQT": {
+            "icon_6w9YxC": {
               "type": "icon",
               "settings": {
                 "icon": "lightning_bolt",
@@ -1280,7 +1280,7 @@
               },
               "blocks": {}
             },
-            "group_tQ7Fkm": {
+            "group_9rakfH": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -1319,10 +1319,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_4wy8VL": {
+                "text_zij6dC": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2><strong>Strength & Wellness</strong></h2>",
+                    "text": "<h2><strong>Quality You Can Trust</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1344,10 +1344,10 @@
                   },
                   "blocks": {}
                 },
-                "text_Vrj89b": {
+                "text_MQGyLm": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Packed with natural goodness that helps support energy, strength, and everyday wellness</p>",
+                    "text": "<p>We bring you quality food products made to make every moment special</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1371,21 +1371,21 @@
                 }
               },
               "block_order": [
-                "text_4wy8VL",
-                "text_Vrj89b"
+                "text_zij6dC",
+                "text_MQGyLm"
               ]
             }
           },
           "block_order": [
-            "icon_AUBGQT",
-            "group_tQ7Fkm"
+            "icon_6w9YxC",
+            "group_9rakfH"
           ]
         }
       },
       "block_order": [
-        "group_eYgeNG",
-        "group_PAf7LF",
-        "group_ajRDL9"
+        "group_QFJC6y",
+        "group_DVhQJH",
+        "group_JFDpak"
       ],
       "name": "t:names.icons_with_text",
       "settings": {
@@ -1540,7 +1540,7 @@
     "wavy_marquee_jXVJzq",
     "section_CR7pMK",
     "section_Myk9wE",
-    "section_iLxGjY",
+    "section_rYpwDr",
     "section_EXrARU",
     "17814472505f9e71a3"
   ]
