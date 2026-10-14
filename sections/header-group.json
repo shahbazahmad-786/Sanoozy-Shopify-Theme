@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_7G4Tnh": {
           "type": "_announcement",
+          "disabled": true,
           "settings": {
             "text": "🎉 Get <strong>20% OFF</strong> on 3 boxes - Family Pack Special",
             "link": "shopify://products/6-pack-barley-drink-in-3-different-flavors",
@@ -30,7 +31,7 @@
         "announcement_anpFH8": {
           "type": "_announcement",
           "settings": {
-            "text": "🔥 Limited Time Offer! Get <strong>15% OFF</strong> on 2 Boxes",
+            "text": "🔥 Limited Time Offer! Buy <strong>3 Gol Gappay Boxes</strong> Only in Rs. 999",
             "link": "shopify://products/6-pack-barley-drink-in-3-different-flavors",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
