@@ -83,21 +83,6 @@
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
     "blocks": {
-      "9589668175390395553": {
-        "type": "shopify://apps/amose-bundle/blocks/quantity_options/50476a12-3ce4-457e-ba71-230751f626b6",
-        "disabled": false,
-        "settings": {}
-      },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      },
-      "5711143968472127049": {
-        "type": "shopify://apps/amose-bundle/blocks/cart_drawer_embed/50476a12-3ce4-457e-ba71-230751f626b6",
-        "disabled": true,
-        "settings": {}
-      },
       "8313405674958898847": {
         "type": "shopify://apps/beez-sub-bundle/blocks/subscribee-block/019cdbf8-68ec-7ca5-9eaf-1286d0672ce2",
         "disabled": false,
