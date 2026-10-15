@@ -1081,6 +1081,7 @@
         },
         "text_item_DVnTym": {
           "type": "text_item",
+          "disabled": true,
           "settings": {
             "text": "Healthy Drink",
             "link": ""
@@ -1121,7 +1122,7 @@
         "font_size": 25,
         "font_weight": "600",
         "text_transform": "uppercase",
-        "separator": "🥂",
+        "separator": "😋",
         "separator_size": 30,
         "padding_top": 60,
         "padding_bottom": 60,
