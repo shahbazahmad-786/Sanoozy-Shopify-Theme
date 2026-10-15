@@ -1110,7 +1110,7 @@
       "name": "Wave Marquee",
       "settings": {
         "background_color": "#5F3300",
-        "text_color": "#FFB20F",
+        "text_color": "#FFF3DF",
         "separator_color": "#5f3300",
         "border_color": "#e2e2e2",
         "wave_amplitude": 20,
