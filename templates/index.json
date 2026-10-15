@@ -1109,6 +1109,68 @@
       ],
       "name": "Wave Marquee",
       "settings": {
+        "background_color": "#5F3300",
+        "text_color": "#FFB20F",
+        "separator_color": "#5f3300",
+        "border_color": "#e2e2e2",
+        "wave_amplitude": 20,
+        "wave_frequency": 5,
+        "speed": 8,
+        "direction": "left",
+        "pause_on_hover": false,
+        "font_size": 25,
+        "font_weight": "600",
+        "text_transform": "uppercase",
+        "separator": "🥂",
+        "separator_size": 30,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "item_gap": 28,
+        "border_width": 0,
+        "icon_size": 20
+      }
+    },
+    "wavy_marquee_JTkhD9": {
+      "type": "wavy-marquee",
+      "blocks": {
+        "text_item_kwKLB7": {
+          "type": "text_item",
+          "settings": {
+            "text": "Tasty & Yummy",
+            "link": ""
+          }
+        },
+        "text_item_n7Pdzq": {
+          "type": "text_item",
+          "settings": {
+            "text": "Healthy Drink",
+            "link": ""
+          }
+        },
+        "text_item_bPgptq": {
+          "type": "text_item",
+          "settings": {
+            "text": "Budget Friendly",
+            "link": ""
+          }
+        },
+        "text_item_a6qt7m": {
+          "type": "text_item",
+          "settings": {
+            "text": "Home Delivery",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_item_kwKLB7",
+        "text_item_n7Pdzq",
+        "text_item_bPgptq",
+        "text_item_a6qt7m"
+      ],
+      "disabled": true,
+      "name": "Wave Marquee",
+      "settings": {
         "background_color": "rgba(0,0,0,0)",
         "text_color": "#5f3300",
         "separator_color": "#5f3300",
@@ -1960,6 +2022,7 @@
     "section_9WP77a",
     "section_HDgzzb",
     "wavy_marquee_jXVJzq",
+    "wavy_marquee_JTkhD9",
     "section_CR7pMK",
     "section_Myk9wE",
     "section_rYpwDr",
