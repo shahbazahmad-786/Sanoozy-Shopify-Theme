@@ -14,20 +14,6 @@
     "header_announcements_xbFHcj": {
       "type": "header-announcements",
       "blocks": {
-        "announcement_7G4Tnh": {
-          "type": "_announcement",
-          "disabled": true,
-          "settings": {
-            "text": "🎉 Get <strong>20% OFF</strong> on 3 boxes - Family Pack Special",
-            "link": "shopify://products/6-pack-barley-drink-in-3-different-flavors",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        },
         "announcement_anpFH8": {
           "type": "_announcement",
           "settings": {
@@ -40,11 +26,24 @@
             "case": "none"
           },
           "blocks": {}
+        },
+        "announcement_7G4Tnh": {
+          "type": "_announcement",
+          "settings": {
+            "text": "🎉 Enjoy <strong>Free Gift </strong>on Your First Order 🎁",
+            "link": "shopify://products/ready-to-fry-crispy-gol-gappay-complete-kit-26-pieces",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "announcement_7G4Tnh",
-        "announcement_anpFH8"
+        "announcement_anpFH8",
+        "announcement_7G4Tnh"
       ],
       "custom_css": [],
       "name": "t:names.announcement_bar",
